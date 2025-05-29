@@ -1,0 +1,205 @@
+/* Reset default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4fff6;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container Styling */
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo Styling */
+.logo-rsud {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 120px;
+  height: auto;
+}
+
+/* Headings */
+h2 {
+  color: #2e7d32;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2.text-start {
+  color: #388e3c;
+  border-left: 6px solid #fdd835;
+  padding-left: 15px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  border: 1px solid #c8e6c9;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
+}
+
+/* Buttons */
+.btn-success {
+  background-color: #43a047;
+  border-color: #43a047;
+  font-weight: 600;
+}
+
+.btn-success:hover {
+  background-color: #388e3c;
+  border-color: #388e3c;
+}
+
+.btn-secondary {
+  background-color: #fdd835;
+  border-color: #fdd835;
+  color: #000;
+  font-weight: 600;
+}
+
+.btn-secondary:hover {
+  background-color: #fbc02d;
+  border-color: #fbc02d;
+}
+
+.btn-warning {
+  background-color: #fbc02d;
+  border-color: #fbc02d;
+  font-weight: 600;
+  color: #000;
+}
+
+.btn-warning:hover {
+  background-color: #f9a825;
+  border-color: #f9a825;
+}
+
+/* Modal Styling */
+.modal-header.bg-success {
+  background-color: #43a047 !important;
+}
+
+.modal-content {
+  border-radius: 10px;
+}
+
+/* WhatsApp Link */
+#hubungiWA a {
+  background-color: #25d366;
+  color: white;
+  font-weight: 600;
+}
+
+#hubungiWA a:hover {
+  background-color: #1ebe5b;
+}
+
+/* Garis Pembatas Kustom */
+.garis-pembatas {
+  border: 0;
+  height: 2px;
+  background-color: #28a745;
+  width: 60%;
+  margin: 0 auto 30px auto;
+}
+
+/* Garis Default */
+hr {
+  border-top: 1px solid #c8e6c9;
+  margin: 20px 0;
+}
+
+/* Footer Styling */
+.footer {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  border-top: 2px solid #c8e6c9;
+  margin-top: 50px;
+  border-radius: 0 0 12px 12px;
+}
+
+.footer a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  color: #1b5e20;
+  text-decoration: underline;
+}
+
+/* Footer Icons or Social Links */
+.footer .social-icons {
+  margin-top: 10px;
+}
+
+.footer .social-icons a {
+  margin: 0 10px;
+  font-size: 1.2rem;
+  color: #388e3c;
+  transition: color 0.3s;
+}
+
+.footer .social-icons a:hover {
+  color: #1b5e20;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 25px;
+  }
+
+  h2.text-start {
+    font-size: 1.25rem;
+  }
+
+  .garis-pembatas {
+    width: 80%;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding: 20px 10px;
+  }
+
+  .footer .social-icons a {
+    font-size: 1rem;
+  }
+}
