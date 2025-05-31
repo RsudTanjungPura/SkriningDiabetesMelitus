@@ -348,7 +348,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   else if (hasilRisiko['Risiko Rendah'].length > 0) kategoriTerburuk = 'Risiko Rendah';
 
   // Kirim ke Google Sheet
-  fetch("https://script.google.com/macros/s/AKfycbzlrbPQGe6-Sw4GE_M2y3YLC4NTDTL1OJkRmwgozBl1OkVW5pneOUQkGKJcZXXVul_3mQ/exec, {
+  fetch("fetch("https://script.google.com/macros/s/AKfycbzlrbPQGe6-Sw4GE_M2y3YLC4NTDTL1OJkRmwgozBl1OkVW5pneOUQkGKJcZXXVul_3mQ/exec", { {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
