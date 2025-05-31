@@ -348,7 +348,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   else if (hasilRisiko['Risiko Rendah'].length > 0) kategoriTerburuk = 'Risiko Rendah';
 
   // Kirim ke Google Sheet
-  fetch("https://script.google.com/macros/s/AKfycbzlrbPQGe6-Sw4GE_M2y3YLC4NTDTL1OJkRmwgozBl1OkVW5pneOUQkGKJcZXXVul_3mQ/exec", { 
+  fetch("https://script.google.com/macros/s/AKfycbzlrbPQGe6-Sw4GE_M2y3YLC4NTDTL1OJkRmwgozBl1OkVW5pneOUQkGKJcZXXVul_3mQ/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -403,7 +403,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   }
 
   // Menyusun pesan untuk dikirim ke WhatsApp dengan data lengkap
-  let pesanWA = `Halo, saya ${nama}, umur ${umur} tahun, jenis kelamin ${jenisKelamin}, berasal dari kota/kecamatan ${kota}, kabupaten ${kabupaten}, provinsi ${provinsi}. Hasil skrining menunjukkan:\n[...]`;
+  let pesanWA = `Halo, saya ${nama}, umur ${umur} tahun, jenis kelamin ${jenisKelamin}, berasal dari kota/kecamatan ${kota}, kabupaten ${kabupaten}, provinsi ${provinsi}. Hasil skrining menunjukkan:\n`;
   if (hasilRisiko['Risiko Tinggi'].length > 0) {
     pesanWA += `Risiko Tinggi: ${hasilRisiko['Risiko Tinggi'].join(', ')}.\n`;
   }
