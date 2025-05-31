@@ -356,24 +356,24 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   else if (hasilRisiko['Risiko Rendah'].length > 0) kategoriTerburuk = 'Risiko Rendah';
 
   // Kirim ke Google Sheet
-  fetch(https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      nama: nama,
-      umur: umur,
-      jenis_kelamin: jenisKelamin,
-      kota: kota,
-      kabupaten: kabupaten,
-      provinsi: provinsi,
-      hasil_risiko: kategoriTerburuk
-    })
+  fetch("https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "text/plain"
+  },
+  body: JSON.stringify({
+    nama: nama,
+    umur: umur,
+    jenis_kelamin: jenisKelamin,
+    kota: kota,
+    kabupaten: kabupaten,
+    provinsi: provinsi,
+    hasil_risiko: kategoriTerburuk
   })
-  .then(res => res.text())
-  .then(data => console.log("Google Sheets response:", data))
-  .catch(err => console.error("Google Sheets error:", err));
+})
+.then(res => res.text())
+.then(data => console.log("Google Sheets response:", data))
+.catch(err => console.error("Google Sheets error:", err));
 
   // Tampilkan data di modal
   document.getElementById("namaPasien").textContent = nama;
