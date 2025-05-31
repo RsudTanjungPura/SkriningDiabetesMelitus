@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skrining Diabetes Mellitus | RSUD Tanjung Pura</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     body {
@@ -24,17 +25,26 @@
       width: 100px;
       height: auto;
     }
-    .frame-informasi {
+    .frame-informasi, .frame-skrining {
       border: 2px solid #28a745;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 30px;
     }
-    .frame-skrining {
-      border: 2px solid #28a745;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
+    .social-icons a {
+      margin-right: 10px;
+      color: #198754;
+      font-size: 1.5rem;
+    }
+    .social-icons a:last-child {
+      margin-right: 0;
+    }
+    footer.footer {
+      text-align: center;
+      color: #999;
+      padding: 20px 0 0 0;
+      background: none;
+      border: none;
     }
   </style>
 </head>
@@ -51,7 +61,7 @@
   <hr class="garis-pembatas">
   <p class="text-center mb-4"><strong>Silakan isi Form Skrining berikut untuk mengetahui potensi risiko diabetes Anda</strong></p>
 
-  <form id="diabetesForm">
+  <form id="diabetesForm" autocomplete="off">
     <!-- Informasi Pasien dengan Frame -->
     <h2 class="text-center text-success mb-4"><strong>Informasi Pasien</strong></h2>
     <div class="frame-informasi">
@@ -61,14 +71,14 @@
       </div>
       <div class="mb-3">
         <label for="umur" class="form-label">Berapa umur Anda?</label>
-        <input type="number" class="form-control" id="umur" required>
+        <input type="number" class="form-control" id="umur" min="1" max="120" required>
       </div>
       <div class="mb-3">
         <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
         <select class="form-select" id="jenisKelamin" required>
           <option value="">Pilih Jenis Kelamin</option>
-          <option value="laki-laki">Laki-laki</option>
-          <option value="perempuan">Perempuan</option>
+          <option value="Laki-laki">Laki-laki</option>
+          <option value="Perempuan">Perempuan</option>
         </select>
       </div>
       <div class="mb-3">
@@ -111,7 +121,7 @@
         <label for="provinsi" class="form-label">Provinsi</label>
         <select class="form-select" id="provinsi" required>
           <option value="">Pilih Provinsi</option>
-          <option value="SumateraUtara">Sumatera Utara</option>
+          <option value="Sumatera Utara">Sumatera Utara</option>
         </select>
       </div>
     </div>
@@ -119,7 +129,7 @@
     <!-- Skrining Gejala dengan Frame -->
     <h2 class="text-center text-success mb-4"><strong>Skrining Gejala</strong></h2>
     <div class="frame-skrining">
-      <!-- Pertanyaan Neuropati -->
+      <!-- Neuropati -->
       <h2 class="text-start text-success mb-4">NEUROPATI (Kerusakan Saraf di Kaki)</h2>
       <div class="mb-3">
         <label class="form-label">Apakah Anda sering merasa kesemutan di kaki atau tangan?</label>
@@ -252,16 +262,15 @@
 
 <!-- Footer -->
 <footer class="footer mt-5">
-  <div>
-    <p>&copy; 2025 <strong>RSUD Tanjung Pura</strong>. Semua Hak Dilindungi.</p>
-    <div class="social-icons">
-      <a href="https://facebook.com/rsudtanjungpura" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-      <a href="https://instagram.com/rsudtanjungpura" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      <a href="mailto:info@rsudtanjungpura.go.id" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
-    </div>
+  <p>&copy; 2025 <strong>RSUD Tanjung Pura</strong>. Semua Hak Dilindungi.</p>
+  <div class="social-icons">
+    <a href="https://facebook.com/rsudtanjungpura" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+    <a href="https://instagram.com/rsudtanjungpura" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+    <a href="mailto:info@rsudtanjungpura.go.id" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
   </div>
 </footer>
 
+<!-- Modal Hasil Skrining -->
 <div class="modal fade" id="hasilModal" tabindex="-1" aria-labelledby="hasilModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -301,9 +310,9 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   event.preventDefault();
 
   // Ambil data pasien
-  const nama = document.getElementById("nama").value;
+  const nama = document.getElementById("nama").value.trim();
   const umur = document.getElementById("umur").value;
-  const jenisKelamin = document.getElementById("jenisKelamin").value;
+  const jenisKelamin = document.getElementById("jenisKelamin").options[document.getElementById("jenisKelamin").selectedIndex].text;
   const kotaElem = document.getElementById("kota");
   const kabupatenElem = document.getElementById("kabupaten");
   const provinsiElem = document.getElementById("provinsi");
@@ -329,7 +338,6 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
 
   for (let [namaKelompok, listId] of Object.entries(kelompok)) {
     let jumlahYa = listId.filter(id => document.getElementById(id).value === 'ya').length;
-
     if (jumlahYa >= 3) {
       hasilRisiko['Risiko Tinggi'].push(namaKelompok);
     } else if (jumlahYa === 2) {
@@ -402,7 +410,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
     wa.classList.add('d-none');
   }
 
-  // Menyusun pesan untuk dikirim ke WhatsApp dengan data lengkap
+  // Menyusun pesan WhatsApp
   let pesanWA = `Halo, saya ${nama}, umur ${umur} tahun, jenis kelamin ${jenisKelamin}, berasal dari kota/kecamatan ${kota}, kabupaten ${kabupaten}, provinsi ${provinsi}. Hasil skrining menunjukkan:\n`;
   if (hasilRisiko['Risiko Tinggi'].length > 0) {
     pesanWA += `Risiko Tinggi: ${hasilRisiko['Risiko Tinggi'].join(', ')}.\n`;
@@ -413,6 +421,9 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   if (hasilRisiko['Risiko Rendah'].length > 0) {
     pesanWA += `Risiko Rendah: ${hasilRisiko['Risiko Rendah'].join(', ')}.\n`;
   }
+  if (hasilRisiko['Tidak Berisiko'].length > 0) {
+    pesanWA += `Tidak Berisiko: ${hasilRisiko['Tidak Berisiko'].join(', ')}.\n`;
+  }
   pesanWA += `Mohon informasi dan saran lebih lanjut. Terima kasih.`;
 
   wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
@@ -420,6 +431,9 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   // Tampilkan modal hasil
   const hasilModal = new bootstrap.Modal(document.getElementById('hasilModal'));
   hasilModal.show();
+
+  // Reset form setelah submit & modal tampil
+  document.getElementById('diabetesForm').reset();
 });
 </script>
 
