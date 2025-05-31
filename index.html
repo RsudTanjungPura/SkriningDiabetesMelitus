@@ -411,13 +411,13 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   }
 
   // Menyusun pesan WhatsApp
-  let pesanWA = `Halo, saya ${nama}, 
-  umur ${umur} tahun, 
-  jenis kelamin ${jenisKelamin}, 
-  berasal dari kota/kecamatan ${kota}, 
-  kabupaten ${kabupaten}, 
-  provinsi ${provinsi}. 
-  Hasil skrining menunjukkan:\n`;
+  let pesanWA = `Halo, saya ${nama},
+  Umur : ${umur} tahun,
+  Jenis Kelamin : ${jenisKelamin},
+  berasal dari Kota/Kecamatan : ${kota},
+  Kabupaten : ${kabupaten},
+  Provinsi : ${provinsi}.
+  Hasil skrining menunjukkan :\n`;
   if (hasilRisiko['Risiko Tinggi'].length > 0) {
     pesanWA += `Risiko Tinggi: ${hasilRisiko['Risiko Tinggi'].join(', ')}.\n`;
   }
