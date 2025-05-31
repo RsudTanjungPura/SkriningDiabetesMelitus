@@ -24,39 +24,30 @@
       width: 100px;
       height: auto;
     }
-    /* Menambahkan frame pada informasi pasien */
     .frame-informasi {
       border: 2px solid #28a745;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 30px;
     }
-	/* Menambahkan frame pada skrining gejala */
-    .frame-informasi {
+    .frame-skrining {
       border: 2px solid #28a745;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 30px;
     }
-	/* Menambahkan frame pada skrining gejala */
-  .frame-skrining {
-    border: 2px solid #28a745;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-  }
   </style>
 </head>
 <body>
 
 <div class="container mt-5 mb-5">
   <!-- Banner Header RSUD -->
-<div class="text-center p-4 mb-4" style="background-color: #198754; border-radius: 12px;">
-  <img src="rsud1.png" alt="Logo RSUD Tanjung Pura" class="logo-rsud mb-3">
-  <h2 class="text-white mb-2" style="font-size: 28px;"><strong>RSUD TANJUNG PURA</strong></h2>
-</div>
-  <h2 class="text-center text-success mb-4"style="font-size: 29px;"><strong>Skrining Komplikasi Dini Diabetes Mellitus</strong></h2>
-  <h2 class="text-center text-success mb-4"style="font-size: 29px;"><strong>(SIKOM-DM)</strong></h2>
+  <div class="text-center p-4 mb-4" style="background-color: #198754; border-radius: 12px;">
+    <img src="rsud1.png" alt="Logo RSUD Tanjung Pura" class="logo-rsud mb-3">
+    <h2 class="text-white mb-2" style="font-size: 28px;"><strong>RSUD TANJUNG PURA</strong></h2>
+  </div>
+  <h2 class="text-center text-success mb-4" style="font-size: 29px;"><strong>Skrining Komplikasi Dini Diabetes Mellitus</strong></h2>
+  <h2 class="text-center text-success mb-4" style="font-size: 29px;"><strong>(SIKOM-DM)</strong></h2>
   <hr class="garis-pembatas">
   <p class="text-center mb-4"><strong>Silakan isi Form Skrining berikut untuk mengetahui potensi risiko diabetes Anda</strong></p>
 
@@ -79,17 +70,17 @@
           <option value="laki-laki">Laki-laki</option>
           <option value="perempuan">Perempuan</option>
         </select>
-		</div>
- <div class="mb-3">
-  <label for="kota" class="form-label">Kota / Kecamatan</label>
-  <select class="form-select" id="kota" required>
-    <option value="">Pilih Kota / Kecamatan</option>
+      </div>
+      <div class="mb-3">
+        <label for="kota" class="form-label">Kota / Kecamatan</label>
+        <select class="form-select" id="kota" required>
+          <option value="">Pilih Kota / Kecamatan</option>
           <option value="Bahorok">Bahorok</option>
           <option value="Brandan Barat">Brandan Barat</option>
           <option value="Babalan">Babalan</option>
           <option value="Batang Serangan">Batang Serangan</option>
           <option value="Besitang">Besitang</option>
- 	<option value="Binjai">Binjai</option>
+          <option value="Binjai">Binjai</option>
           <option value="Gebang">Gebang</option>
           <option value="Hinai">Hinai</option>
           <option value="Kuala">Kuala</option>
@@ -107,155 +98,155 @@
           <option value="Stabat">Stabat</option>
           <option value="Tanjung Pura">Tanjung Pura</option>
           <option value="Wampu">Wampu</option>
-  </select>
-        </div>
-        <div class="mb-3">
-          <label for="kabupaten" class="form-label">Kabupaten</label>
-		  <select class="form-select" id="kabupaten" required>
-        <option value="">Pilih Kabupaten</option>
-        <option value="Langkat">Langkat</option>
-		</select>
-        </div>
-        <div class="mb-3">
-          <label for="provinsi" class="form-label">Provinsi</label>
-          <select class="form-select" id="provinsi" required>
-		  <option value="">Pilih Provinsi</option>
-        <option value="SumateraUtara">Sumatera Utara</option>
-		</select>
-        </div>
-		</div>
-	
-	<!-- Skrining Gejala dengan Frame -->
-<h2 class="text-center text-success mb-4"><strong>Skrining Gejala</strong></h2>
-<div class="frame-skrining">
-  <!-- Pertanyaan Neuropati -->
-  <h2 class="text-start text-success mb-4">NEUROPATI (Kerusakan Saraf di Kaki)</h2>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda sering merasa kesemutan di kaki atau tangan?</label>
-    <select class="form-select" id="neuropati1" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah kaki Anda sering terasa mati rasa atau kebas?</label>
-    <select class="form-select" id="neuropati2" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda pernah tidak menyadari ada luka di kaki?</label>
-    <select class="form-select" id="neuropati3" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah kaki Anda terasa seperti terbakar atau ditusuk jarum?</label>
-    <select class="form-select" id="neuropati4" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="kabupaten" class="form-label">Kabupaten</label>
+        <select class="form-select" id="kabupaten" required>
+          <option value="">Pilih Kabupaten</option>
+          <option value="Langkat">Langkat</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="provinsi" class="form-label">Provinsi</label>
+        <select class="form-select" id="provinsi" required>
+          <option value="">Pilih Provinsi</option>
+          <option value="SumateraUtara">Sumatera Utara</option>
+        </select>
+      </div>
+    </div>
 
-  <!-- Nefropati -->
-  <h2 class="text-start text-success mb-4">NEFROPATI (Kerusakan Ginjal)</h2>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda sering merasa bengkak di kaki atau wajah?</label>
-    <select class="form-select" id="nefropati1" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda merasa cepat lelah atau lemah tanpa sebab jelas?</label>
-    <select class="form-select" id="nefropati2" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah warna air kencing Anda keruh atau berbusa?</label>
-    <select class="form-select" id="nefropati3" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
+    <!-- Skrining Gejala dengan Frame -->
+    <h2 class="text-center text-success mb-4"><strong>Skrining Gejala</strong></h2>
+    <div class="frame-skrining">
+      <!-- Pertanyaan Neuropati -->
+      <h2 class="text-start text-success mb-4">NEUROPATI (Kerusakan Saraf di Kaki)</h2>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda sering merasa kesemutan di kaki atau tangan?</label>
+        <select class="form-select" id="neuropati1" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah kaki Anda sering terasa mati rasa atau kebas?</label>
+        <select class="form-select" id="neuropati2" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda pernah tidak menyadari ada luka di kaki?</label>
+        <select class="form-select" id="neuropati3" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah kaki Anda terasa seperti terbakar atau ditusuk jarum?</label>
+        <select class="form-select" id="neuropati4" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
 
-  <!-- Retinopati -->
-  <h2 class="text-start text-success mb-4">RETINOPATI (Masalah Penglihatan)</h2>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda sering merasa penglihatan kabur, terutama saat malam atau membaca?</label>
-    <select class="form-select" id="retinopati1" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda pernah melihat bayangan seperti benang atau titik hitam mengganggu penglihatan?</label>
-    <select class="form-select" id="retinopati2" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda belum pernah periksa mata sejak didiagnosis diabetes?</label>
-    <select class="form-select" id="retinopati3" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
+      <!-- Nefropati -->
+      <h2 class="text-start text-success mb-4">NEFROPATI (Kerusakan Ginjal)</h2>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda sering merasa bengkak di kaki atau wajah?</label>
+        <select class="form-select" id="nefropati1" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda merasa cepat lelah atau lemah tanpa sebab jelas?</label>
+        <select class="form-select" id="nefropati2" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah warna air kencing Anda keruh atau berbusa?</label>
+        <select class="form-select" id="nefropati3" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
 
-  <!-- Kardiovaskular -->
-  <h2 class="text-start text-success mb-4">KARDIOVASKULAR (Jantung & Pembuluh Darah)</h2>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda sering merasa nyeri dada saat berjalan atau aktivitas ringan?</label>
-    <select class="form-select" id="kardiovaskular1" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda pernah mengalami sesak napas tanpa sebab jelas?</label>
-    <select class="form-select" id="kardiovaskular2" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Apakah Anda pernah didiagnosis tekanan darah tinggi atau kolesterol tinggi?</label>
-    <select class="form-select" id="kardiovaskular3" required>
-      <option value="">Pilih Jawaban</option>
-      <option value="ya">Ya</option>
-      <option value="tidak">Tidak</option>
-    </select>
-  </div>
-</div>
+      <!-- Retinopati -->
+      <h2 class="text-start text-success mb-4">RETINOPATI (Masalah Penglihatan)</h2>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda sering merasa penglihatan kabur, terutama saat malam atau membaca?</label>
+        <select class="form-select" id="retinopati1" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda pernah melihat bayangan seperti benang atau titik hitam mengganggu penglihatan?</label>
+        <select class="form-select" id="retinopati2" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda belum pernah periksa mata sejak didiagnosis diabetes?</label>
+        <select class="form-select" id="retinopati3" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
 
+      <!-- Kardiovaskular -->
+      <h2 class="text-start text-success mb-4">KARDIOVASKULAR (Jantung & Pembuluh Darah)</h2>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda sering merasa nyeri dada saat berjalan atau aktivitas ringan?</label>
+        <select class="form-select" id="kardiovaskular1" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda pernah mengalami sesak napas tanpa sebab jelas?</label>
+        <select class="form-select" id="kardiovaskular2" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Apakah Anda pernah didiagnosis tekanan darah tinggi atau kolesterol tinggi?</label>
+        <select class="form-select" id="kardiovaskular3" required>
+          <option value="">Pilih Jawaban</option>
+          <option value="ya">Ya</option>
+          <option value="tidak">Tidak</option>
+        </select>
+      </div>
+    </div>
 
     <button type="submit" class="btn btn-success w-100">Kirim Jawaban</button>
   </form>
+
   <!-- Kontak WhatsApp Dokter -->
-<div class="text-center mt-4 p-3 border border-success rounded shadow-sm" style="background-color: #e9f7ef;">
-  <p class="mb-1 text-success fw-bold">Perlu Konsultasi Langsung?</p>
-  <p class="mb-2">Silakan hubungi dokter melalui WhatsApp:</p>
-  <a href="https://wa.me/628116152970" target="_blank" class="btn btn-outline-success">
-    <img src="https://img.icons8.com/ios-filled/20/25D366/whatsapp.png" alt="WA Icon" style="margin-right: 8px;">
-    +628116152970
-  </a>
+  <div class="text-center mt-4 p-3 border border-success rounded shadow-sm" style="background-color: #e9f7ef;">
+    <p class="mb-1 text-success fw-bold">Perlu Konsultasi Langsung?</p>
+    <p class="mb-2">Silakan hubungi dokter melalui WhatsApp:</p>
+    <a href="https://wa.me/628116152970" target="_blank" class="btn btn-outline-success">
+      <img src="https://img.icons8.com/ios-filled/20/25D366/whatsapp.png" alt="WA Icon" style="margin-right: 8px;">
+      +628116152970
+    </a>
   </div>
 </div>
 
@@ -281,11 +272,11 @@
       <div class="modal-body">
         <div id="dataPasien" class="mb-3">
           <p><strong>Nama:</strong> <span id="namaPasien"></span></p>
-		  <p><strong>Umur:</strong> <span id="umurPasien"></span> tahun</p>
-		  <p><strong>Jenis Kelamin:</strong> <span id="jkPasien"></span></p>
-		  <p><strong>Kota / Kecamatan:</strong> <span id="kotaPasien"></span></p>
-		  <p><strong>Kabupaten:</strong> <span id="kabupatenPasien"></span></p>
-		  <p><strong>Provinsi:</strong> <span id="provinsiPasien"></span></p>
+          <p><strong>Umur:</strong> <span id="umurPasien"></span> tahun</p>
+          <p><strong>Jenis Kelamin:</strong> <span id="jkPasien"></span></p>
+          <p><strong>Kota / Kecamatan:</strong> <span id="kotaPasien"></span></p>
+          <p><strong>Kabupaten:</strong> <span id="kabupatenPasien"></span></p>
+          <p><strong>Provinsi:</strong> <span id="provinsiPasien"></span></p>
         </div>
         <p id="output"></p>
         <hr>
@@ -296,9 +287,7 @@
         </div>
       </div>
       <div class="modal-footer">
-	  <div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-</div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
       </div>
     </div>
   </div>
@@ -307,7 +296,6 @@
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Script Penilaian -->
 <script>
 document.getElementById('diabetesForm').addEventListener('submit', function (event) {
   event.preventDefault();
@@ -324,15 +312,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   const kabupaten = kabupatenElem.options[kabupatenElem.selectedIndex].text;
   const provinsi = provinsiElem.options[provinsiElem.selectedIndex].text;
 
-
-  // Tampilkan data di modal
-  document.getElementById("namaPasien").textContent = nama;
-  document.getElementById("umurPasien").textContent = umur;
-  document.getElementById("jkPasien").textContent = jenisKelamin;
-  document.getElementById("kotaPasien").textContent = kota;
-  document.getElementById("kabupatenPasien").textContent = kabupaten;
-  document.getElementById("provinsiPasien").textContent = provinsi;
-
+  // Penilaian risiko
   const kelompok = {
     'Neuropati (Saraf)': ['neuropati1', 'neuropati2', 'neuropati3', 'neuropati4'],
     'Nefropati (Ginjal)': ['nefropati1', 'nefropati2', 'nefropati3'],
@@ -361,86 +341,86 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
     }
   }
 
+  // Tentukan kategori terburuk
+  let kategoriTerburuk = 'Tidak Berisiko';
+  if (hasilRisiko['Risiko Tinggi'].length > 0) kategoriTerburuk = 'Risiko Tinggi';
+  else if (hasilRisiko['Risiko Sedang'].length > 0) kategoriTerburuk = 'Risiko Sedang';
+  else if (hasilRisiko['Risiko Rendah'].length > 0) kategoriTerburuk = 'Risiko Rendah';
+
+  // Kirim ke Google Sheet
+  fetch("https://script.google.com/macros/s/AKfycbx9tLO-ZbOo9ynFoR2qu7pxIqA32ZT5OBzdHxpmNe6pmn73M1mLZ5oiR8eLfJ-HEMPUZg/exec", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nama: nama,
+      umur: umur,
+      jenis_kelamin: jenisKelamin,
+      kota: kota,
+      kabupaten: kabupaten,
+      provinsi: provinsi,
+      hasil_risiko: kategoriTerburuk
+    })
+  })
+  .then(res => res.text())
+  .then(data => console.log("Google Sheets response:", data))
+  .catch(err => console.error("Google Sheets error:", err));
+
+  // Tampilkan data di modal
+  document.getElementById("namaPasien").textContent = nama;
+  document.getElementById("umurPasien").textContent = umur;
+  document.getElementById("jkPasien").textContent = jenisKelamin;
+  document.getElementById("kotaPasien").textContent = kota;
+  document.getElementById("kabupatenPasien").textContent = kabupaten;
+  document.getElementById("provinsiPasien").textContent = provinsi;
+
   const output = document.getElementById('output');
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
 
   let ringkasan = [];
-
   for (let kategori in hasilRisiko) {
     if (hasilRisiko[kategori].length > 0) {
       ringkasan.push(`${kategori} pada: ${hasilRisiko[kategori].join(', ')}`);
     }
   }
-
   output.textContent = ringkasan.join('. ') + '.';
 
-if (hasilRisiko['Risiko Tinggi'].length > 0) {
-  solusi.textContent = 'Tingkat risiko tinggi ditemukan. Segera lakukan evaluasi dan konsultasi lanjutan ke dokter.';
-  wa.classList.add('d-none'); // sembunyikan tombol WA untuk risiko tinggi
-} 
-else if (hasilRisiko['Risiko Sedang'].length > 0 || hasilRisiko['Risiko Rendah'].length > 0) {
-  // Kalau risiko sedang atau rendah, tampilkan tombol WA
-  if (hasilRisiko['Risiko Sedang'].length > 0) {
-    solusi.textContent = 'Ada risiko sedang yang perlu diwaspadai. Konsultasikan lebih lanjut ke fasilitas kesehatan.';
+  if (hasilRisiko['Risiko Tinggi'].length > 0) {
+    solusi.textContent = 'Tingkat risiko tinggi ditemukan. Segera lakukan evaluasi dan konsultasi lanjutan ke dokter.';
+    wa.classList.add('d-none');
+  } else if (hasilRisiko['Risiko Sedang'].length > 0 || hasilRisiko['Risiko Rendah'].length > 0) {
+    if (hasilRisiko['Risiko Sedang'].length > 0) {
+      solusi.textContent = 'Ada risiko sedang yang perlu diwaspadai. Konsultasikan lebih lanjut ke fasilitas kesehatan.';
+    } else {
+      solusi.textContent = 'Risiko komplikasi rendah, tetapi tetap penting menjaga kesehatan dan kontrol rutin.';
+    }
+    wa.classList.remove('d-none');
   } else {
-    solusi.textContent = 'Risiko komplikasi rendah, tetapi tetap penting menjaga kesehatan dan kontrol rutin.';
+    solusi.textContent = 'Tidak ditemukan risiko komplikasi. Tetap jaga pola hidup sehat.';
+    wa.classList.add('d-none');
   }
-  wa.classList.remove('d-none'); // tampilkan tombol WA untuk risiko sedang & rendah
-} else {
-  solusi.textContent = 'Tidak ditemukan risiko komplikasi. Tetap jaga pola hidup sehat.';
-  wa.classList.add('d-none'); // sembunyikan tombol WA jika tidak berisiko
-}
+
   // Menyusun pesan untuk dikirim ke WhatsApp dengan data lengkap
-  let pesanWA = `Halo, saya ${nama}, umur ${umur} tahun, jenis kelamin ${jenisKelamin}, berasal dari kota/kecamatan ${kota}, kabupaten ${kabupaten}, provinsi ${provinsi}. Hasil skrining menunjukkan:\n`;
+  let pesanWA = `Halo, saya ${nama}, umur ${umur} tahun, jenis kelamin ${jenisKelamin}, berasal dari kota/kecamatan ${kota}, kabupaten ${kabupaten}, provinsi ${provinsi}. Hasil skrining menunjukkan:\n[...]`;
+  if (hasilRisiko['Risiko Tinggi'].length > 0) {
+    pesanWA += `Risiko Tinggi: ${hasilRisiko['Risiko Tinggi'].join(', ')}.\n`;
+  }
+  if (hasilRisiko['Risiko Sedang'].length > 0) {
+    pesanWA += `Risiko Sedang: ${hasilRisiko['Risiko Sedang'].join(', ')}.\n`;
+  }
+  if (hasilRisiko['Risiko Rendah'].length > 0) {
+    pesanWA += `Risiko Rendah: ${hasilRisiko['Risiko Rendah'].join(', ')}.\n`;
+  }
+  pesanWA += `Mohon informasi dan saran lebih lanjut. Terima kasih.`;
 
-if (hasilRisiko['Risiko Tinggi'].length > 0) {
-  pesanWA += `Risiko Tinggi: ${hasilRisiko['Risiko Tinggi'].join(', ')}.\n`;
-}
-if (hasilRisiko['Risiko Sedang'].length > 0) {
-  pesanWA += `Risiko Sedang: ${hasilRisiko['Risiko Sedang'].join(', ')}.\n`;
-}
-if (hasilRisiko['Risiko Rendah'].length > 0) {
-  pesanWA += `Risiko Rendah: ${hasilRisiko['Risiko Rendah'].join(', ')}.\n`;
-}
-// Tambahkan saran umum
-pesanWA += `Mohon informasi dan saran lebih lanjut. Terima kasih.`;
-
-
-  // Update link WhatsApp dengan pesan
   wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
 
   // Tampilkan modal hasil
   const hasilModal = new bootstrap.Modal(document.getElementById('hasilModal'));
   hasilModal.show();
 });
-
-// Susun hasil risiko secara ringkas
-let kategoriTerburuk = 'Tidak Berisiko';
-if (hasilRisiko['Risiko Tinggi'].length > 0) kategoriTerburuk = 'Risiko Tinggi';
-else if (hasilRisiko['Risiko Sedang'].length > 0) kategoriTerburuk = 'Risiko Sedang';
-else if (hasilRisiko['Risiko Rendah'].length > 0) kategoriTerburuk = 'Risiko Rendah';
-
-// Kirim ke Google Sheet
-fetch("https://script.google.com/macros/s/AKfycbx9tLO-ZbOo9ynFoR2qu7pxIqA32ZT5OBzdHxpmNe6pmn73M1mLZ5oiR8eLfJ-HEMPUZg/exec", {
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    nama: nama,
-    umur: umur,
-    jenis_kelamin: jenisKelamin,
-    kota: kota,
-    kabupaten: kabupaten,
-    provinsi: provinsi,
-    hasil_risiko: kategoriTerburuk
-  })
-})
-.then(res => res.text())
-.then(data => console.log("Google Sheets response:", data))
-.catch(err => console.error("Google Sheets error:", err));
-
-
 </script>
 
 </body>
