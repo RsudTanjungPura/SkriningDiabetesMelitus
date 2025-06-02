@@ -214,12 +214,19 @@ hr {
   h2, .h2 {
     font-size: 18px !important;
   }
- .frame-informasi, .frame-skrining {
-  border: 2.5px solid #21a038;    /* hijau tegas, sedikit lebih tebal */
-  background: #fff;               /* putih polos di dalam, bukan hijau muda */
-  border-radius: 12px;            /* sedikit lebih bulat di pojok */
+ .frame-informasi {
+  border: 2.5px solid #21a038;      /* Hijau tegas */
+  background: #fff;
+  border-radius: 12px;
   padding: 28px 18px;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
+}
+.frame-skrining {
+  border: 2.5px solid #43a047;      /* Hijau beda, atau sama, sesuai selera */
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 18px;
+  margin-bottom: 32px;
 }
   label.form-label {
     font-size: 13px;
@@ -239,4 +246,6 @@ hr {
     max-height: 90vh;
     overflow-y: auto;
   }
+  box-shadow: 0 2px 8px rgba(34,160,56,0.06);
+}
 }
