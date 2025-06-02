@@ -70,6 +70,24 @@ label {
   box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
 }
 
+/* Frame Informasi dan Frame Skrining */
+.frame-informasi {
+  border: 2.5px solid #21a038;      /* Hijau tegas */
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 18px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(34,160,56,0.06);
+}
+.frame-skrining {
+  border: 2.5px solid #43a047;      /* Hijau tua, sedikit beda agar mudah dibedakan */
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 18px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(34,160,56,0.06);
+}
+
 /* Buttons */
 .btn-success {
   background-color: #43a047;
@@ -185,22 +203,22 @@ hr {
   .container {
     padding: 25px;
   }
-
   h2.text-start {
     font-size: 1.25rem;
   }
-
   .garis-pembatas {
     width: 80%;
   }
-
   .footer {
     font-size: 0.85rem;
     padding: 20px 10px;
   }
-
   .footer .social-icons a {
     font-size: 1rem;
+  }
+  .frame-informasi,
+  .frame-skrining {
+    padding: 15px 8px;
   }
 }
 
@@ -214,20 +232,11 @@ hr {
   h2, .h2 {
     font-size: 18px !important;
   }
- .frame-informasi {
-  border: 2.5px solid #21a038;      /* Hijau tegas */
-  background: #fff;
-  border-radius: 12px;
-  padding: 28px 18px;
-  margin-bottom: 32px;
-}
-.frame-skrining {
-  border: 2.5px solid #43a047;      /* Hijau beda, atau sama, sesuai selera */
-  background: #fff;
-  border-radius: 12px;
-  padding: 28px 18px;
-  margin-bottom: 32px;
-}
+  .frame-informasi,
+  .frame-skrining {
+    padding: 10px 3px;
+    font-size: 14px;
+  }
   label.form-label {
     font-size: 13px;
   }
@@ -246,6 +255,4 @@ hr {
     max-height: 90vh;
     overflow-y: auto;
   }
-  box-shadow: 0 2px 8px rgba(34,160,56,0.06);
-}
 }
