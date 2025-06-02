@@ -62,7 +62,7 @@
   <h2 class="text-center text-success mb-4" style="font-size: 29px;"><strong>Skrining Komplikasi Dini Diabetes Mellitus</strong></h2>
   <h2 class="text-center text-success mb-4" style="font-size: 29px;"><strong>(SIKOM-DM)</strong></h2>
   <hr class="garis-pembatas">
-  <p class="text-center mb-4"><strong>Silakan pilih jalur skrining sesuai kondisi Anda di bawah ini</strong></p>
+  <p id="teksPetunjuk" class="text-center mb-4"><strong>Silakan pilih jalur skrining sesuai kondisi Anda di bawah ini</strong></p>
 
   <!-- STEP 1: PILIHAN JALUR SKRINING -->
   <div id="stepAwal" class="text-center">
@@ -137,229 +137,46 @@
           </select>
         </div>
       </div>
-
       <!-- Skrining Gejala dengan Frame -->
       <h2 class="text-center text-success mb-4"><strong>Skrining Gejala</strong></h2>
       <div class="frame-skrining">
-        <!-- Neuropati -->
+        <!-- NEUROPATI -->
         <h2 class="text-start text-success mb-4">NEUROPATI (Kerusakan Saraf di Kaki)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda merasakan kesemutan di kaki Anda??</label>
-          <select class="form-select" id="neuropati1" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda merasakan di kaki Anda seperti tidak terasa / baal ?</label>
-          <select class="form-select" id="neuropati2" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda merasakan sensasi terbakar di kaki Anda?</label>
-          <select class="form-select" id="neuropati3" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasakan nyeri seperti ditusuk-tusuk atau tertusuk jarum di kaki Anda?</label>
-          <select class="form-select" id="neuropati4" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda mengalami nyeri saat selimut atau pakaian menyentuh kaki Anda?</label>
-          <select class="form-select" id="neuropati5" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda merasa tidak bisa membedakan suhu panas atau dingin di kaki Anda?</label>
-          <select class="form-select" id="neuropati6" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering tersandung atau terjatuh karena kaki terasa lemah atau tidak terasa?</label>
-          <select class="form-select" id="neuropati7" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah mengalami luka di kaki yang tidak terasa sakit?</label>
-          <select class="form-select" id="neuropati8" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda mengalami gangguan tidur akibat nyeri atau sensasi tidak nyaman di kaki?</label>
-          <select class="form-select" id="neuropati9" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda mengalami perubahan warna atau kulit kering pada kaki?</label>
-          <select class="form-select" id="neuropati10" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasakan kram di kaki pada malam hari?</label>
-          <select class="form-select" id="neuropati11" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda merasa kaki Anda terasa lebih lemah dibandingkan biasanya?</label>
-          <select class="form-select" id="neuropati12" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa kaki Anda dingin meskipun suhu ruangan normal?</label>
-          <select class="form-select" id="neuropati13" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering tidak merasa jika kaki Anda terluka atau terbakar oleh benda panas?</label>
-          <select class="form-select" id="neuropati14" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
+        <div class="mb-3"><label class="form-label">1. Apakah Anda merasakan kesemutan di kaki Anda?</label><select class="form-select" id="neuropati1" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">2. Apakah Anda merasakan di kaki Anda seperti tidak terasa / baal?</label><select class="form-select" id="neuropati2" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">3. Apakah Anda merasakan sensasi terbakar di kaki Anda?</label><select class="form-select" id="neuropati3" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">4. Apakah Anda sering merasakan nyeri seperti ditusuk-tusuk atau tertusuk jarum di kaki Anda?</label><select class="form-select" id="neuropati4" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">5. Apakah Anda mengalami nyeri saat selimut atau pakaian menyentuh kaki Anda?</label><select class="form-select" id="neuropati5" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">6. Apakah Anda merasa tidak bisa membedakan suhu panas atau dingin di kaki Anda?</label><select class="form-select" id="neuropati6" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">7. Apakah Anda sering tersandung atau terjatuh karena kaki terasa lemah atau tidak terasa?</label><select class="form-select" id="neuropati7" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">8. Apakah Anda pernah mengalami luka di kaki yang tidak terasa sakit?</label><select class="form-select" id="neuropati8" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">9. Apakah Anda mengalami gangguan tidur akibat nyeri atau sensasi tidak nyaman di kaki?</label><select class="form-select" id="neuropati9" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">10. Apakah Anda mengalami perubahan warna atau kulit kering pada kaki?</label><select class="form-select" id="neuropati10" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">11. Apakah Anda sering merasakan kram di kaki pada malam hari?</label><select class="form-select" id="neuropati11" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">12. Apakah Anda merasa kaki Anda terasa lebih lemah dibandingkan biasanya?</label><select class="form-select" id="neuropati12" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">13. Apakah Anda sering merasa kaki Anda dingin meskipun suhu ruangan normal?</label><select class="form-select" id="neuropati13" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">14. Apakah Anda sering tidak merasa jika kaki Anda terluka atau terbakar oleh benda panas?</label><select class="form-select" id="neuropati14" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
 
         <!-- Nefropati -->
         <h2 class="text-start text-success mb-4">NEFROPATI (Kerusakan Ginjal)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda mengalami bengkak di kaki/pergelangan?</label>
-          <select class="form-select" id="nefropati1" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa lemas, mudah lelah tanpa sebab jelas?</label>
-          <select class="form-select" id="nefropati2" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah diperiksa protein / albumin di urin dengan hasil positif?</label>
-          <select class="form-select" id="nefropati3" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda memiliki kreatinin darah tinggi (≥1.2 mg/dL)?</label>
-          <select class="form-select" id="nefropati4" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
+        <div class="mb-3"><label class="form-label">1. Apakah Anda mengalami bengkak di kaki/pergelangan?</label><select class="form-select" id="nefropati1" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">2. Apakah Anda sering merasa lemas, mudah lelah tanpa sebab jelas?</label><select class="form-select" id="nefropati2" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">3. Apakah Anda pernah diperiksa protein / albumin di urin dengan hasil positif?</label><select class="form-select" id="nefropati3" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">4. Apakah Anda memiliki kreatinin darah tinggi (≥1.2 mg/dL)?</label><select class="form-select" id="nefropati4" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
 
         <!-- Retinopati -->
         <h2 class="text-start text-success mb-4">RETINOPATI (Masalah Penglihatan)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda mengalami penglihatan kabur yang makin memburuk?</label>
-          <select class="form-select" id="retinopati1" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda melihat bintik-bintik hitam (floaters) di penglihatan?</label>
-          <select class="form-select" id="retinopati2" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering sulit melihat di malam hari?</label>
-          <select class="form-select" id="retinopati3" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah didiagnosis retinopati diabetik sebelumnya?</label>
-          <select class="form-select" id="retinopati4" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
+        <div class="mb-3"><label class="form-label">1. Apakah Anda mengalami penglihatan kabur yang makin memburuk?</label><select class="form-select" id="retinopati1" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">2. Apakah Anda melihat bintik-bintik hitam (floaters) di penglihatan?</label><select class="form-select" id="retinopati2" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">3. Apakah Anda sering sulit melihat di malam hari?</label><select class="form-select" id="retinopati3" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">4. Apakah Anda pernah didiagnosis retinopati diabetik sebelumnya?</label><select class="form-select" id="retinopati4" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
 
         <!-- Kardiovaskular -->
         <h2 class="text-start text-success mb-4">KARDIOVASKULAR (Jantung & Pembuluh Darah)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasakan nyeri dada/tertekan di dada?</label>
-          <select class="form-select" id="kardiovaskular1" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda mengalami sesak napas saat aktivitas ringan?</label>
-          <select class="form-select" id="kardiovaskular2" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah didiagnosis hipertensi atau kolesterol tinggi?</label>
-          <select class="form-select" id="kardiovaskular3" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah mengalami bengkak di kaki/terasa cepat lelah?</label>
-          <select class="form-select" id="kardiovaskular4" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
+        <div class="mb-3"><label class="form-label">1. Apakah Anda sering merasakan nyeri dada/tertekan di dada?</label><select class="form-select" id="kardiovaskular1" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">2. Apakah Anda mengalami sesak napas saat aktivitas ringan?</label><select class="form-select" id="kardiovaskular2" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">3. Apakah Anda pernah didiagnosis hipertensi atau kolesterol tinggi?</label><select class="form-select" id="kardiovaskular3" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
+        <div class="mb-3"><label class="form-label">4. Apakah Anda pernah mengalami bengkak di kaki/terasa cepat lelah?</label><select class="form-select" id="kardiovaskular4" required><option value="">Pilih Jawaban</option><option value="ya">Ya</option><option value="tidak">Tidak</option></select></div>
       </div>
       <div class="text-center mb-3">
         <button type="submit" class="btn btn-success w-50">Kirim Jawaban</button>
@@ -499,7 +316,6 @@
   </div>
 </div>
 
-<!-- Footer -->
 <footer class="footer mt-5">
   <p>&copy; 2025 <strong>RSUD Tanjung Pura</strong>. Semua Hak Dilindungi.</p>
   <div class="social-icons">
@@ -541,9 +357,7 @@
   </div>
 </div>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
 // === TAMPILAN PILIHAN JALUR SKRINING ===
 const stepAwal = document.getElementById('stepAwal');
@@ -556,12 +370,14 @@ btnSudah.onclick = function() {
   stepAwal.style.display = 'none';
   formSkrining.style.display = '';
   formBelum.style.display = 'none';
+  document.getElementById('teksPetunjuk').innerHTML = '<strong>Anda memilih jalur skrining untuk yang sudah pernah didiagnosis diabetes oleh tenaga kesehatan.</strong>';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 btnBelum.onclick = function() {
   stepAwal.style.display = 'none';
   formSkrining.style.display = 'none';
   formBelum.style.display = '';
+  document.getElementById('teksPetunjuk').innerHTML = '<strong>Anda memilih jalur skrining untuk yang belum pernah didiagnosis diabetes oleh tenaga kesehatan.</strong>';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
@@ -569,6 +385,7 @@ function kembaliStepAwal() {
   stepAwal.style.display = '';
   formSkrining.style.display = 'none';
   formBelum.style.display = 'none';
+  document.getElementById('teksPetunjuk').innerHTML = '<strong>Silakan pilih jalur skrining sesuai kondisi Anda di bawah ini</strong>';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -588,7 +405,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   const kabupaten = kabupatenElem.options[kabupatenElem.selectedIndex].text;
   const provinsi = provinsiElem.options[provinsiElem.selectedIndex].text;
 
-  // Penilaian skor: 1 poin untuk setiap YA pada SEMUA pertanyaan gejala (total 26 pertanyaan)
+  // Penilaian skor: 1 poin untuk setiap YA pada SEMUA pertanyaan gejala
   const pertanyaanIDs = [
     'neuropati1', 'neuropati2', 'neuropati3', 'neuropati4', 'neuropati5', 'neuropati6', 'neuropati7', 'neuropati8', 'neuropati9', 'neuropati10', 'neuropati11', 'neuropati12', 'neuropati13', 'neuropati14',
     'nefropati1', 'nefropati2', 'nefropati3', 'nefropati4',
@@ -640,7 +457,6 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
     wa.classList.remove('d-none');
   }
 
-  // WhatsApp
   let pesanWA = `Halo, saya ${nama},
 Umur: ${umur} tahun,
 Jenis Kelamin: ${jenisKelamin},
@@ -653,19 +469,15 @@ Mohon informasi dan saran lebih lanjut. Terima kasih.`;
 
   wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
 
-  // Tampilkan modal hasil
   const hasilModal = new bootstrap.Modal(document.getElementById('hasilModal'));
   hasilModal.show();
 
-  // Reset form setelah submit & modal tampil
   document.getElementById('diabetesForm').reset();
 });
 
 // === FORM SKRINING DIABETES (BELUM PERNAH) ===
 document.getElementById('belumDiabetesForm').addEventListener('submit', function (event) {
   event.preventDefault();
-
-  // Data Diri & Risiko
   const nama = document.getElementById("namaBelum").value.trim();
   const umur = parseInt(document.getElementById("umurBelum").value, 10);
   const jenisKelamin = document.getElementById("jenisKelaminBelum").options[document.getElementById("jenisKelaminBelum").selectedIndex].text;
@@ -681,7 +493,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
     poinUmur = 2;
   } else if (umur >= 40) {
     poinUmur = 1;
-  } // umur < 40 => 0 poin
+  }
 
   // Pertanyaan skrining risiko
   const pertanyaanIDs = [
@@ -700,8 +512,6 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   if (tinggiBadan && beratBadan && tinggiBadan > 0) {
     let tb = tinggiBadan / 100;
     bmi = (beratBadan / (tb * tb)).toFixed(1);
-
-    // Logika khusus tinggi/berat badan
     if (
       (tinggiBadan === 150 && beratBadan > 57) ||
       (tinggiBadan === 155 && beratBadan > 59) ||
@@ -712,17 +522,11 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
     ) {
       poinYa += 1;
       dapatPoinTinggiBerat = true;
-    }
-    // Jika tidak dapat poin dari logika khusus, tetap cek BMI ≥25 (tambahan 1 poin)
-    else if (bmi >= 25) {
+    } else if (bmi >= 25) {
       poinYa += 1;
     }
   }
-
-  // Total poin termasuk umur
   let totalPoin = poinYa + poinUmur;
-
-  // Kirim ke Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
     method: "POST",
     headers: { "Content-Type": "text/plain" },
@@ -743,7 +547,6 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   .then(data => console.log("Google Sheets response:", data))
   .catch(err => console.error("Google Sheets error:", err));
 
-  // Tampilkan data di modal
   document.getElementById("namaPasien").textContent = nama;
   document.getElementById("umurPasien").textContent = umur;
   document.getElementById("jkPasien").textContent = jenisKelamin;
@@ -754,9 +557,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   const output = document.getElementById('output');
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
-
   output.textContent = `Total poin: ${totalPoin} (Jawaban "Ya": ${poinYa}, Poin Umur: ${poinUmur}` + (bmi ? `, BMI: ${bmi}` : "") + (dapatPoinTinggiBerat ? ", Poin dari logika tinggi/berat badan" : "") + ")";
-
   if (totalPoin <= 5) {
     solusi.textContent = "Risiko Rendah. Lanjutkan gaya hidup sehat, periksa secara berkala sebulan sekali.";
     wa.classList.add('d-none');
@@ -765,7 +566,6 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
     wa.classList.remove('d-none');
   }
 
-  // WhatsApp
   let pesanWA = `Halo, saya ${nama},
 Umur: ${umur} tahun,
 Jenis Kelamin: ${jenisKelamin},
@@ -775,17 +575,13 @@ Provinsi: ${provinsi}.
 Total poin: ${totalPoin} (Jawaban "Ya": ${poinYa}, Poin Umur: ${poinUmur}${bmi ? ", BMI: " + bmi : ""}${dapatPoinTinggiBerat ? ", Poin dari logika tinggi/berat badan" : ""}).
 ${(totalPoin <= 5) ? 'Risiko Rendah' : 'Risiko Tinggi'}
 Mohon informasi dan saran lebih lanjut. Terima kasih.`;
-
   wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
 
-  // Tampilkan modal hasil
   const hasilModal = new bootstrap.Modal(document.getElementById('hasilModal'));
   hasilModal.show();
 
-  // Reset form setelah submit & modal tampil
   document.getElementById('belumDiabetesForm').reset();
 });
 </script>
-
 </body>
 </html>
