@@ -468,9 +468,93 @@ function kembaliStepAwal() {
 document.getElementById('diabetesForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
-  // ... (logic form sudah pernah tetap, tidak berubah) ...
-  // (copy from previous completion above)
-  // ...
+  // === FORM SKRINING DIABETES (SUDAH PERNAH) ===
+document.getElementById('diabetesForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  // Ambil data pasien
+  const nama = document.getElementById("nama").value.trim();
+  const umur = document.getElementById("umur").value;
+  const jenisKelamin = document.getElementById("jenisKelamin").options[document.getElementById("jenisKelamin").selectedIndex].text;
+  const kotaElem = document.getElementById("kota");
+  const kabupatenElem = document.getElementById("kabupaten");
+  const provinsiElem = document.getElementById("provinsi");
+
+  const kota = kotaElem.options[kotaElem.selectedIndex].text;
+  const kabupaten = kabupatenElem.options[kabupatenElem.selectedIndex].text;
+  const provinsi = provinsiElem.options[provinsiElem.selectedIndex].text;
+
+  // Penilaian skor: 1 poin untuk setiap YA pada SEMUA pertanyaan gejala (total 13 pertanyaan)
+  const pertanyaanIDs = [
+    'neuropati1', 'neuropati2', 'neuropati3', 'neuropati4',
+    'nefropati1', 'nefropati2', 'nefropati3',
+    'retinopati1', 'retinopati2', 'retinopati3',
+    'kardiovaskular1', 'kardiovaskular2', 'kardiovaskular3'
+  ];
+  let poinYa = 0;
+  pertanyaanIDs.forEach(id => {
+    const val = document.getElementById(id).value;
+    if (val === 'ya') poinYa += 1;
+  });
+
+  // Kirim ke Google Sheet
+  fetch("https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
+    method: "POST",
+    headers: { "Content-Type": "text/plain" },
+    body: JSON.stringify({
+      nama: nama,
+      umur: umur,
+      jenis_kelamin: jenisKelamin,
+      kota: kota,
+      kabupaten: kabupaten,
+      provinsi: provinsi,
+      total_poin_ya: poinYa
+    })
+  })
+  .then(res => res.text())
+  .then(data => console.log("Google Sheets response:", data))
+  .catch(err => console.error("Google Sheets error:", err));
+
+  // Tampilkan data di modal
+  document.getElementById("namaPasien").textContent = nama;
+  document.getElementById("umurPasien").textContent = umur;
+  document.getElementById("jkPasien").textContent = jenisKelamin;
+  document.getElementById("kotaPasien").textContent = kota;
+  document.getElementById("kabupatenPasien").textContent = kabupaten;
+  document.getElementById("provinsiPasien").textContent = provinsi;
+
+  const output = document.getElementById('output');
+  const solusi = document.getElementById('solusi');
+  const wa = document.getElementById('hubungiWA');
+
+  output.textContent = `Total poin jawaban "Ya": ${poinYa}`;
+  if (poinYa <= 10) {
+    solusi.textContent = "Tidak ada indikasi komplikasi diabetes. Tetap kontrol rutin dan jalankan gaya hidup sehat.";
+    wa.classList.add('d-none');
+  } else {
+    solusi.textContent = "Ada indikasi komplikasi diabetes. Segera konsultasi ke Dokter Spesialis Penyakit Dalam untuk pemeriksaan lebih lanjut.";
+    wa.classList.remove('d-none');
+  }
+
+  // WhatsApp
+  let pesanWA = `Halo, saya ${nama},
+Umur: ${umur} tahun,
+Jenis Kelamin: ${jenisKelamin},
+Kota/Kecamatan: ${kota},
+Kabupaten: ${kabupaten},
+Provinsi: ${provinsi}.
+Total poin jawaban "Ya": ${poinYa}.
+${(poinYa <= 10) ? 'Tidak ada indikasi komplikasi diabetes.' : 'Ada indikasi komplikasi diabetes.'}
+Mohon informasi dan saran lebih lanjut. Terima kasih.`;
+
+  wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
+
+  // Tampilkan modal hasil
+  const hasilModal = new bootstrap.Modal(document.getElementById('hasilModal'));
+  hasilModal.show();
+
+  // Reset form setelah submit & modal tampil
+  document.getElementById('diabetesForm').reset();
 });
 
 // === FORM SKRINING DIABETES (BELUM PERNAH) ===
