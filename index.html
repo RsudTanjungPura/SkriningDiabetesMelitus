@@ -328,6 +328,10 @@
             <option value="Sumatera Utara">Sumatera Utara</option>
           </select>
         </div>
+
+        
+      <!-- Skrining Gejala dengan Frame (ID unik) -->
+         <h2 class="text-center text-success mb-4"><strong>Skrining Gejala</strong></h2>
         <div class="mb-3">
           <label for="riwayatKeluargaBelum" class="form-label">Riwayat diabetes keluarga inti (ayah/ibu/saudara kandung)?</label>
           <select class="form-select" id="riwayatKeluargaBelum" required>
@@ -367,126 +371,7 @@
         <div class="mb-3">
           <label for="beratBadanBelum" class="form-label">Berat Badan (kg)</label>
           <input type="number" class="form-control" id="beratBadanBelum" min="20" max="250" step="0.1" required>
-        </div>
-      </div>
-
-      <!-- Skrining Gejala dengan Frame (ID unik) -->
-      <h2 class="text-center text-success mb-4"><strong>Skrining Gejala</strong></h2>
-      <div class="frame-skrining">
-        <!-- Neuropati -->
-        <h2 class="text-start text-success mb-4">NEUROPATI (Kerusakan Saraf di Kaki)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa kesemutan di kaki atau tangan?</label>
-          <select class="form-select" id="neuropati1Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah kaki Anda sering terasa mati rasa atau kebas?</label>
-          <select class="form-select" id="neuropati2Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah tidak menyadari ada luka di kaki?</label>
-          <select class="form-select" id="neuropati3Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah kaki Anda terasa seperti terbakar atau ditusuk jarum?</label>
-          <select class="form-select" id="neuropati4Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-
-        <!-- Nefropati -->
-        <h2 class="text-start text-success mb-4">NEFROPATI (Kerusakan Ginjal)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa bengkak di kaki atau wajah?</label>
-          <select class="form-select" id="nefropati1Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda merasa cepat lelah atau lemah tanpa sebab jelas?</label>
-          <select class="form-select" id="nefropati2Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah warna air kencing Anda keruh atau berbusa?</label>
-          <select class="form-select" id="nefropati3Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-
-        <!-- Retinopati -->
-        <h2 class="text-start text-success mb-4">RETINOPATI (Masalah Penglihatan)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa penglihatan kabur, terutama saat malam atau membaca?</label>
-          <select class="form-select" id="retinopati1Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah melihat bayangan seperti benang atau titik hitam mengganggu penglihatan?</label>
-          <select class="form-select" id="retinopati2Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda belum pernah periksa mata sejak didiagnosis diabetes?</label>
-          <select class="form-select" id="retinopati3Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-
-        <!-- Kardiovaskular -->
-        <h2 class="text-start text-success mb-4">KARDIOVASKULAR (Jantung & Pembuluh Darah)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa nyeri dada saat berjalan atau aktivitas ringan?</label>
-          <select class="form-select" id="kardiovaskular1Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah mengalami sesak napas tanpa sebab jelas?</label>
-          <select class="form-select" id="kardiovaskular2Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda pernah didiagnosis tekanan darah tinggi atau kolesterol tinggi?</label>
-          <select class="form-select" id="kardiovaskular3Belum" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
+        </select>
         </div>
       </div>
       <div class="text-center mb-3">
