@@ -587,11 +587,21 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
 
   // Data Diri & Risiko
   const nama = document.getElementById("namaBelum").value.trim();
-  const umur = document.getElementById("umurBelum").value;
+  const umur = parseInt(document.getElementById("umurBelum").value, 10);
   const jenisKelamin = document.getElementById("jenisKelaminBelum").options[document.getElementById("jenisKelaminBelum").selectedIndex].text;
   const kota = document.getElementById("kotaBelum").options[document.getElementById("kotaBelum").selectedIndex].text;
   const kabupaten = document.getElementById("kabupatenBelum").options[document.getElementById("kabupatenBelum").selectedIndex].text;
   const provinsi = document.getElementById("provinsiBelum").options[document.getElementById("provinsiBelum").selectedIndex].text;
+
+  // Penilaian umur
+  let poinUmur = 0;
+  if (umur >= 60) {
+    poinUmur = 3;
+  } else if (umur >= 50) {
+    poinUmur = 2;
+  } else if (umur >= 40) {
+    poinUmur = 1;
+  } // umur < 40 => 0 poin
 
   // Pertanyaan skrining risiko
   const pertanyaanIDs = [
@@ -629,6 +639,9 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
     }
   }
 
+  // Total poin termasuk umur
+  let totalPoin = poinYa + poinUmur;
+
   // Kirim ke Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
     method: "POST",
@@ -640,9 +653,10 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
       kota: kota,
       kabupaten: kabupaten,
       provinsi: provinsi,
-      total_poin_ya: poinYa,
+      total_poin_ya: totalPoin,
       bmi: bmi,
-      dapat_poin_tinggi_berat: dapatPoinTinggiBerat
+      dapat_poin_tinggi_berat: dapatPoinTinggiBerat,
+      poin_umur: poinUmur
     })
   })
   .then(res => res.text())
@@ -661,9 +675,9 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
 
-  output.textContent = `Total poin jawaban "Ya": ${poinYa}` + (bmi ? ` | BMI: ${bmi}` : "") + (dapatPoinTinggiBerat ? " | Poin dari logika tinggi/berat badan" : "");
+  output.textContent = `Total poin: ${totalPoin} (Jawaban "Ya": ${poinYa}, Poin Umur: ${poinUmur}` + (bmi ? `, BMI: ${bmi}` : "") + (dapatPoinTinggiBerat ? ", Poin dari logika tinggi/berat badan" : "") + ")";
 
-  if (poinYa <= 5) {
+  if (totalPoin <= 5) {
     solusi.textContent = "Risiko Rendah. Lanjutkan gaya hidup sehat, periksa secara berkala sebulan sekali.";
     wa.classList.add('d-none');
   } else {
@@ -678,8 +692,8 @@ Jenis Kelamin: ${jenisKelamin},
 Kota/Kecamatan: ${kota},
 Kabupaten: ${kabupaten},
 Provinsi: ${provinsi}.
-Total poin jawaban "Ya": ${poinYa}${bmi ? (", BMI: " + bmi) : ""}${dapatPoinTinggiBerat ? ", Poin dari logika tinggi/berat badan" : ""}.
-${(poinYa <= 5) ? 'Risiko Rendah' : 'Risiko Tinggi'}
+Total poin: ${totalPoin} (Jawaban "Ya": ${poinYa}, Poin Umur: ${poinUmur}${bmi ? ", BMI: " + bmi : ""}${dapatPoinTinggiBerat ? ", Poin dari logika tinggi/berat badan" : ""}).
+${(totalPoin <= 5) ? 'Risiko Rendah' : 'Risiko Tinggi'}
 Mohon informasi dan saran lebih lanjut. Terima kasih.`;
 
   wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
