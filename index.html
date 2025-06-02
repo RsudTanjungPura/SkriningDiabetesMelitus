@@ -480,46 +480,23 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   const kabupaten = kabupatenElem.options[kabupatenElem.selectedIndex].text;
   const provinsi = provinsiElem.options[provinsiElem.selectedIndex].text;
 
-  // Penilaian risiko
-  const kelompok = {
-    'Neuropati (Saraf)': ['neuropati1', 'neuropati2', 'neuropati3', 'neuropati4'],
-    'Nefropati (Ginjal)': ['nefropati1', 'nefropati2', 'nefropati3'],
-    'Retinopati (Mata)': ['retinopati1', 'retinopati2', 'retinopati3'],
-    'Kardiovaskular (Jantung)': ['kardiovaskular1', 'kardiovaskular2', 'kardiovaskular3']
-  };
-
-  let hasilRisiko = {
-    'Risiko Tinggi': [],
-    'Risiko Sedang': [],
-    'Risiko Rendah': [],
-    'Tidak Berisiko': []
-  };
-
-  for (let [namaKelompok, listId] of Object.entries(kelompok)) {
-    let jumlahYa = listId.filter(id => document.getElementById(id).value === 'ya').length;
-    if (jumlahYa >= 3) {
-      hasilRisiko['Risiko Tinggi'].push(namaKelompok);
-    } else if (jumlahYa === 2) {
-      hasilRisiko['Risiko Sedang'].push(namaKelompok);
-    } else if (jumlahYa === 1) {
-      hasilRisiko['Risiko Rendah'].push(namaKelompok);
-    } else {
-      hasilRisiko['Tidak Berisiko'].push(namaKelompok);
-    }
-  }
-
-  // Tentukan kategori terburuk
-  let kategoriTerburuk = 'Tidak Berisiko';
-  if (hasilRisiko['Risiko Tinggi'].length > 0) kategoriTerburuk = 'Risiko Tinggi';
-  else if (hasilRisiko['Risiko Sedang'].length > 0) kategoriTerburuk = 'Risiko Sedang';
-  else if (hasilRisiko['Risiko Rendah'].length > 0) kategoriTerburuk = 'Risiko Rendah';
+  // Penilaian skor: 1 poin untuk setiap YA pada SEMUA pertanyaan gejala (total 13 pertanyaan)
+  const pertanyaanIDs = [
+    'neuropati1', 'neuropati2', 'neuropati3', 'neuropati4',
+    'nefropati1', 'nefropati2', 'nefropati3',
+    'retinopati1', 'retinopati2', 'retinopati3',
+    'kardiovaskular1', 'kardiovaskular2', 'kardiovaskular3'
+  ];
+  let poinYa = 0;
+  pertanyaanIDs.forEach(id => {
+    const val = document.getElementById(id).value;
+    if (val === 'ya') poinYa += 1;
+  });
 
   // Kirim ke Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
     method: "POST",
-    headers: {
-      "Content-Type": "text/plain"
-    },
+    headers: { "Content-Type": "text/plain" },
     body: JSON.stringify({
       nama: nama,
       umur: umur,
@@ -527,7 +504,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
       kota: kota,
       kabupaten: kabupaten,
       provinsi: provinsi,
-      hasil_risiko: kategoriTerburuk
+      total_poin_ya: poinYa
     })
   })
   .then(res => res.text())
@@ -546,50 +523,25 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
 
-  let ringkasan = [];
-  for (let kategori in hasilRisiko) {
-    if (hasilRisiko[kategori].length > 0) {
-      ringkasan.push(`${kategori} pada: ${hasilRisiko[kategori].join(', ')}`);
-    }
-  }
-  output.textContent = ringkasan.join('. ') + '.';
-
-  if (hasilRisiko['Risiko Tinggi'].length > 0) {
-    solusi.textContent = 'Tingkat risiko tinggi ditemukan. Segera lakukan evaluasi dan konsultasi lanjutan ke dokter.';
+  output.textContent = `Total poin jawaban "Ya": ${poinYa}`;
+  if (poinYa <= 10) {
+    solusi.textContent = "Tidak ada indikasi komplikasi diabetes. Tetap kontrol rutin dan jalankan gaya hidup sehat.";
     wa.classList.add('d-none');
-  } else if (hasilRisiko['Risiko Sedang'].length > 0 || hasilRisiko['Risiko Rendah'].length > 0) {
-    if (hasilRisiko['Risiko Sedang'].length > 0) {
-      solusi.textContent = 'Ada risiko sedang yang perlu diwaspadai. Konsultasikan lebih lanjut ke fasilitas kesehatan.';
-    } else {
-      solusi.textContent = 'Risiko komplikasi rendah, tetapi tetap penting menjaga kesehatan dan kontrol rutin.';
-    }
-    wa.classList.remove('d-none');
   } else {
-    solusi.textContent = 'Tidak ditemukan risiko komplikasi. Tetap jaga pola hidup sehat.';
-    wa.classList.add('d-none');
+    solusi.textContent = "Ada indikasi komplikasi diabetes. Segera konsultasi ke Dokter Spesialis Penyakit Dalam untuk pemeriksaan lebih lanjut.";
+    wa.classList.remove('d-none');
   }
 
-  // Menyusun pesan WhatsApp
+  // WhatsApp
   let pesanWA = `Halo, saya ${nama},
-  Umur : ${umur} tahun,
-  Jenis Kelamin : ${jenisKelamin},
-  berasal dari Kota/Kecamatan : ${kota},
-  Kabupaten : ${kabupaten},
-  Provinsi : ${provinsi}.
-  Hasil skrining menunjukkan :\n`;
-  if (hasilRisiko['Risiko Tinggi'].length > 0) {
-    pesanWA += `Risiko Tinggi: ${hasilRisiko['Risiko Tinggi'].join(', ')}.\n`;
-  }
-  if (hasilRisiko['Risiko Sedang'].length > 0) {
-    pesanWA += `Risiko Sedang: ${hasilRisiko['Risiko Sedang'].join(', ')}.\n`;
-  }
-  if (hasilRisiko['Risiko Rendah'].length > 0) {
-    pesanWA += `Risiko Rendah: ${hasilRisiko['Risiko Rendah'].join(', ')}.\n`;
-  }
-  if (hasilRisiko['Tidak Berisiko'].length > 0) {
-    pesanWA += `Tidak Berisiko: ${hasilRisiko['Tidak Berisiko'].join(', ')}.\n`;
-  }
-  pesanWA += `Mohon informasi dan saran lebih lanjut. Terima kasih.`;
+Umur: ${umur} tahun,
+Jenis Kelamin: ${jenisKelamin},
+Kota/Kecamatan: ${kota},
+Kabupaten: ${kabupaten},
+Provinsi: ${provinsi}.
+Total poin jawaban "Ya": ${poinYa}.
+${(poinYa <= 10) ? 'Tidak ada indikasi komplikasi diabetes.' : 'Ada indikasi komplikasi diabetes.'}
+Mohon informasi dan saran lebih lanjut. Terima kasih.`;
 
   wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
 
@@ -612,37 +564,30 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   const kota = document.getElementById("kotaBelum").options[document.getElementById("kotaBelum").selectedIndex].text;
   const kabupaten = document.getElementById("kabupatenBelum").options[document.getElementById("kabupatenBelum").selectedIndex].text;
   const provinsi = document.getElementById("provinsiBelum").options[document.getElementById("provinsiBelum").selectedIndex].text;
-  const riwayatKeluarga = document.getElementById("riwayatKeluargaBelum").value;
-  const hipertensi = document.getElementById("hipertensiBelum").value;
-  const aktivitas = document.getElementById("aktivitasBelum").value;
-  const beratBadanLebih = document.getElementById("beratBadanLebihBelum").value;
-  const tinggiBadan = document.getElementById("tinggiBadanBelum").value;
-  const beratBadan = document.getElementById("beratBadanBelum").value;
 
-  // Penilaian faktor risiko tambahan
-  let faktorRisiko = [];
-  if (riwayatKeluarga === "ya") faktorRisiko.push("Riwayat diabetes keluarga inti");
-  if (hipertensi === "ya") faktorRisiko.push("Hipertensi/obat hipertensi");
-  if (aktivitas === "tidak") faktorRisiko.push("Kurang aktivitas rutin");
-  if (beratBadanLebih === "ya") faktorRisiko.push("Berat badan berlebih");
-
-  // Kalkulasi BMI
+  // Pertanyaan skrining risiko
+  const pertanyaanIDs = [
+    'riwayatKeluargaBelum', 'hipertensiBelum', 'aktivitasBelum', 'beratBadanLebihBelum'
+  ];
+  let poinYa = 0;
+  pertanyaanIDs.forEach(id => {
+    const val = document.getElementById(id).value;
+    if (val === 'ya') poinYa += 1;
+  });
+  // Penilaian BMI untuk tambahan poin
+  let tinggiBadan = parseFloat(document.getElementById("tinggiBadanBelum").value);
+  let beratBadan = parseFloat(document.getElementById("beratBadanBelum").value);
   let bmi = "";
-  if (tinggiBadan && beratBadan && !isNaN(tinggiBadan) && !isNaN(beratBadan) && tinggiBadan > 0) {
-    let tb = parseFloat(tinggiBadan) / 100;
-    let bb = parseFloat(beratBadan);
-    bmi = (bb / (tb * tb)).toFixed(1);
-    if (!faktorRisiko.includes("Berat badan berlebih") && bmi >= 25) {
-      faktorRisiko.push("Berat badan berlebih (BMI)");
-    }
+  if (tinggiBadan && beratBadan && tinggiBadan > 0) {
+    let tb = tinggiBadan / 100;
+    bmi = (beratBadan / (tb * tb)).toFixed(1);
+    if (bmi >= 25) poinYa += 1; // BMI >= 25 dapat tambahan 1 poin
   }
 
   // Kirim ke Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
     method: "POST",
-    headers: {
-      "Content-Type": "text/plain"
-    },
+    headers: { "Content-Type": "text/plain" },
     body: JSON.stringify({
       nama: nama,
       umur: umur,
@@ -650,14 +595,8 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
       kota: kota,
       kabupaten: kabupaten,
       provinsi: provinsi,
-      riwayat_diabetes_keluarga: riwayatKeluarga,
-      hipertensi: hipertensi,
-      aktivitas: aktivitas,
-      berat_badan_berlebih: beratBadanLebih,
-      tinggi_badan: tinggiBadan,
-      berat_badan: beratBadan,
-      bmi: bmi,
-      faktor_risiko_tambahan: faktorRisiko.join(", ")
+      total_poin_ya: poinYa,
+      bmi: bmi
     })
   })
   .then(res => res.text())
@@ -672,42 +611,30 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   document.getElementById("kabupatenPasien").textContent = kabupaten;
   document.getElementById("provinsiPasien").textContent = provinsi;
 
-  // OUTPUT
   const output = document.getElementById('output');
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
 
-  let ringkasan = [];
-  if (faktorRisiko.length > 0) {
-    ringkasan.push("Faktor risiko: " + faktorRisiko.join(', '));
-  } else {
-    ringkasan.push("Tidak ditemukan faktor risiko utama.");
-  }
-  if (bmi) {
-    ringkasan.push("BMI: " + bmi);
-  }
-  output.textContent = ringkasan.join(". ") + ".";
+  output.textContent = `Total poin jawaban "Ya": ${poinYa}` + (bmi ? ` | BMI: ${bmi}` : "");
 
-  // Solusi
-  if (faktorRisiko.length > 0) {
-    solusi.textContent = "Risiko diabetes ditemukan. Sebaiknya konsultasi ke fasilitas kesehatan untuk pemeriksaan lebih lanjut.";
-    wa.classList.remove('d-none');
-  } else {
-    solusi.textContent = "Tidak ditemukan faktor risiko utama. Tetap jaga pola hidup sehat.";
+  if (poinYa <= 5) {
+    solusi.textContent = "Risiko Rendah. Lanjutkan gaya hidup sehat, periksa secara berkala sebulan sekali.";
     wa.classList.add('d-none');
+  } else {
+    solusi.textContent = "Risiko Tinggi. Dianjurkan konsultasi langsung dan pemeriksaan laboratorium dari Poliklinik Penyakit Dalam RSUD Tanjung Pura.";
+    wa.classList.remove('d-none');
   }
 
   // WhatsApp
   let pesanWA = `Halo, saya ${nama},
-  Umur : ${umur} tahun,
-  Jenis Kelamin : ${jenisKelamin},
-  berasal dari Kota/Kecamatan : ${kota},
-  Kabupaten : ${kabupaten},
-  Provinsi : ${provinsi}.
-  Hasil skrining menunjukkan :\n`;
-  if (faktorRisiko.length > 0) pesanWA += `Faktor risiko: ${faktorRisiko.join(', ')}.\n`;
-  if (bmi) pesanWA += `BMI: ${bmi}\n`;
-  pesanWA += `Mohon informasi dan saran lebih lanjut. Terima kasih.`;
+Umur: ${umur} tahun,
+Jenis Kelamin: ${jenisKelamin},
+Kota/Kecamatan: ${kota},
+Kabupaten: ${kabupaten},
+Provinsi: ${provinsi}.
+Total poin jawaban "Ya": ${poinYa}${bmi ? (", BMI: " + bmi) : ""}.
+${(poinYa <= 5) ? 'Risiko Rendah' : 'Risiko Tinggi'}
+Mohon informasi dan saran lebih lanjut. Terima kasih.`;
 
   wa.querySelector('a').href = `https://wa.me/6285360078280?text=${encodeURIComponent(pesanWA)}`;
 
