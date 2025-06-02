@@ -267,75 +267,116 @@
     </form>
   </div>
 
-  <!-- FORM BELUM PERNAH DIAGNOSIS (baru, default: HIDDEN) -->
-  <div id="formBelumDiabetes" style="display: none;">
-    <h2 class="text-success mb-4"><strong>Skrining Risiko Diabetes</strong></h2>
-    <div class="frame-informasi">
-      <div class="mb-3">
-        <label for="namaBelum" class="form-label">Nama</label>
-        <input type="text" class="form-control" id="namaBelum" required>
-      </div>
-      <div class="mb-3">
-        <label for="umurBelum" class="form-label">Berapa umur Anda?</label>
-        <input type="number" class="form-control" id="umurBelum" min="1" max="120" required>
-      </div>
-      <div class="mb-3">
-        <label for="jenisKelaminBelum" class="form-label">Jenis Kelamin</label>
-        <select class="form-select" id="jenisKelaminBelum" required>
-          <option value="">Pilih Jenis Kelamin</option>
-          <option value="Laki-laki">Laki-laki</option>
-          <option value="Perempuan">Perempuan</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="kotaBelum" class="form-label">Kota / Kecamatan</label>
-        <select class="form-select" id="kotaBelum" required>
-          <option value="">Pilih Kota / Kecamatan</option>
-          <option value="Bahorok">Bahorok</option>
-          <option value="Brandan Barat">Brandan Barat</option>
-          <option value="Babalan">Babalan</option>
-          <option value="Batang Serangan">Batang Serangan</option>
-          <option value="Besitang">Besitang</option>
-          <option value="Binjai">Binjai</option>
-          <option value="Gebang">Gebang</option>
-          <option value="Hinai">Hinai</option>
-          <option value="Kuala">Kuala</option>
-          <option value="Kutambaru">Kutambaru</option>
-          <option value="Padang Tualang">Padang Tualang</option>
-          <option value="Pangkalan Susu">Pangkalan Susu</option>
-          <option value="Pematang Jaya">Pematang Jaya</option>
-          <option value="Salapian">Salapian</option>
-          <option value="Sawit Seberang">Sawit Seberang</option>
-          <option value="Secanggang">Secanggang</option>
-          <option value="Sei Bingei">Sei Bingei</option>
-          <option value="Sei Lepan">Sei Lepan</option>
-          <option value="Serapit">Serapit</option>
-          <option value="Selesai">Selesai</option>
-          <option value="Stabat">Stabat</option>
-          <option value="Tanjung Pura">Tanjung Pura</option>
-          <option value="Wampu">Wampu</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="kabupatenBelum" class="form-label">Kabupaten</label>
-        <select class="form-select" id="kabupatenBelum" required>
-          <option value="">Pilih Kabupaten</option>
-          <option value="Langkat">Langkat</option>
-        </select>
-      </div>
-      <div class="mb-3">
-        <label for="provinsiBelum" class="form-label">Provinsi</label>
-        <select class="form-select" id="provinsiBelum" required>
-          <option value="">Pilih Provinsi</option>
-          <option value="Sumatera Utara">Sumatera Utara</option>
-        </select>
-      </div>
+ <!-- FORM BELUM PERNAH DIAGNOSIS (baru, default: HIDDEN) -->
+<div id="formBelumDiabetes" style="display: none;">
+  <h2 class="text-success mb-4"><strong>Skrining Risiko Diabetes</strong></h2>
+  <div class="frame-informasi">
+    <div class="mb-3">
+      <label for="namaBelum" class="form-label">Nama</label>
+      <input type="text" class="form-control" id="namaBelum" required>
     </div>
-    <div class="alert alert-info text-center">
-      <strong>Anda belum pernah didiagnosis diabetes.</strong><br>
-      Silakan konsultasi ke fasilitas kesehatan untuk skrining risiko diabetes secara lengkap. <br>
-      <span class="d-block d-md-inline">Jika Anda ingin konsultasi online, silakan klik tombol di bawah ini.</span>
+    <div class="mb-3">
+      <label for="umurBelum" class="form-label">Umur</label>
+      <input type="number" class="form-control" id="umurBelum" min="1" max="120" required>
     </div>
+    <div class="mb-3">
+      <label for="jenisKelaminBelum" class="form-label">Jenis Kelamin</label>
+      <select class="form-select" id="jenisKelaminBelum" required>
+        <option value="">Pilih Jenis Kelamin</option>
+        <option value="Laki-laki">Laki-laki</option>
+        <option value="Perempuan">Perempuan</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="kotaBelum" class="form-label">Kota / Kecamatan</label>
+      <select class="form-select" id="kotaBelum" required>
+        <option value="">Pilih Kota / Kecamatan</option>
+        <option value="Bahorok">Bahorok</option>
+        <option value="Brandan Barat">Brandan Barat</option>
+        <option value="Babalan">Babalan</option>
+        <option value="Batang Serangan">Batang Serangan</option>
+        <option value="Besitang">Besitang</option>
+        <option value="Binjai">Binjai</option>
+        <option value="Gebang">Gebang</option>
+        <option value="Hinai">Hinai</option>
+        <option value="Kuala">Kuala</option>
+        <option value="Kutambaru">Kutambaru</option>
+        <option value="Padang Tualang">Padang Tualang</option>
+        <option value="Pangkalan Susu">Pangkalan Susu</option>
+        <option value="Pematang Jaya">Pematang Jaya</option>
+        <option value="Salapian">Salapian</option>
+        <option value="Sawit Seberang">Sawit Seberang</option>
+        <option value="Secanggang">Secanggang</option>
+        <option value="Sei Bingei">Sei Bingei</option>
+        <option value="Sei Lepan">Sei Lepan</option>
+        <option value="Serapit">Serapit</option>
+        <option value="Selesai">Selesai</option>
+        <option value="Stabat">Stabat</option>
+        <option value="Tanjung Pura">Tanjung Pura</option>
+        <option value="Wampu">Wampu</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="kabupatenBelum" class="form-label">Kabupaten</label>
+      <select class="form-select" id="kabupatenBelum" required>
+        <option value="">Pilih Kabupaten</option>
+        <option value="Langkat">Langkat</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="provinsiBelum" class="form-label">Provinsi</label>
+      <select class="form-select" id="provinsiBelum" required>
+        <option value="">Pilih Provinsi</option>
+        <option value="Sumatera Utara">Sumatera Utara</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="riwayatKeluargaBelum" class="form-label">Riwayat diabetes keluarga inti (ayah/ibu/saudara kandung)?</label>
+      <select class="form-select" id="riwayatKeluargaBelum" required>
+        <option value="">Pilih Jawaban</option>
+        <option value="ya">Ya</option>
+        <option value="tidak">Tidak</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="hipertensiBelum" class="form-label">Tekanan darah tinggi atau minum obat hipertensi?</label>
+      <select class="form-select" id="hipertensiBelum" required>
+        <option value="">Pilih Jawaban</option>
+        <option value="ya">Ya</option>
+        <option value="tidak">Tidak</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="aktivitasBelum" class="form-label">Aktivitas rutin (30 menit/hari, 5x/minggu)?</label>
+      <select class="form-select" id="aktivitasBelum" required>
+        <option value="">Pilih Jawaban</option>
+        <option value="ya">Ya</option>
+        <option value="tidak">Tidak</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="beratBadanLebihBelum" class="form-label">Berat badan Anda berlebih?</label>
+      <select class="form-select" id="beratBadanLebihBelum" required>
+        <option value="">Pilih Jawaban</option>
+        <option value="ya">Ya</option>
+        <option value="tidak">Tidak</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="tinggiBadanBelum" class="form-label">Tinggi Badan (cm)</label>
+      <input type="number" class="form-control" id="tinggiBadanBelum" min="80" max="250" step="0.1" required>
+    </div>
+    <div class="mb-3">
+      <label for="beratBadanBelum" class="form-label">Berat Badan (kg)</label>
+      <input type="number" class="form-control" id="beratBadanBelum" min="20" max="250" step="0.1" required>
+    </div>
+  </div>
+  <!-- ...Lanjutkan dengan form skrining gejala atau tombol submit sesuai kebutuhan... -->
+  <div class="text-center mb-3">
+    <button type="button" class="btn btn-secondary" onclick="kembaliStepAwal()">Kembali</button>
+    <button type="submit" class="btn btn-success w-50 ms-3">Kirim Jawaban</button>
+  </div>
+</div>
     <div class="text-center">
       <a href="https://wa.me/628116152970" target="_blank" class="btn btn-success mt-3">
         Konsultasi via WhatsApp
