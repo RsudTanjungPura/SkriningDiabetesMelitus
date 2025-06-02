@@ -215,9 +215,12 @@ hr {
     font-size: 18px !important;
   }
   .frame-informasi, .frame-skrining {
-    padding: 10px;
-    font-size: 14px;
-  }
+  border: 2px solid #00923F;
+  background-color: #e7fce1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
   label.form-label {
     font-size: 13px;
   }
