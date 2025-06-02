@@ -403,7 +403,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
 
-  output.textContent = `Total poin jawaban "Ya": ${poinYa}`;
+  output.textContent = ""; // Sembunyikan detail skor
   if (poinYa <= 10) {
     solusi.textContent = "Tidak ada indikasi komplikasi diabetes. Tetap kontrol rutin dan jalankan gaya hidup sehat.";
     wa.classList.add('d-none');
@@ -512,7 +512,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   const output = document.getElementById('output');
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
-  output.textContent = `Total poin: ${totalPoin} (Jawaban "Ya": ${poinYa}, Poin Umur: ${poinUmur}` + (bmi ? `, BMI: ${bmi}` : "") + (dapatPoinTinggiBerat ? ", Poin dari logika tinggi/berat badan" : "") + ")";
+  output.textContent = output.textContent = ""; // Sembunyikan detail skor
   if (totalPoin <= 5) {
     solusi.textContent = "Risiko Rendah. Lanjutkan gaya hidup sehat, periksa secara berkala sebulan sekali.";
     wa.classList.add('d-none');
