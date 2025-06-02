@@ -267,7 +267,7 @@
   <!-- FORM BELUM PERNAH DIAGNOSIS (default: HIDDEN) -->
   <div id="formBelumDiabetes" style="display: none;">
     <form id="belumDiabetesForm" autocomplete="off">
-      <h2 class="text-center text-success mb-4"><strong>Informasi Pasien & Faktor Risiko</strong></h2>
+      <h2 class="text-center text-success mb-4"><strong>Informasi Pasien & Skrining Risiko</strong></h2>
       <div class="frame-informasi">
         <div class="mb-3">
           <label for="namaBelum" class="form-label">Nama</label>
@@ -328,10 +328,10 @@
             <option value="Sumatera Utara">Sumatera Utara</option>
           </select>
         </div>
-
-        
-      <!-- Skrining Gejala dengan Frame (ID unik) -->
-         <h2 class="text-center text-success mb-4"><strong>Skrining Gejala</strong></h2>
+      </div>
+      <!-- Skrining Gejala Khusus -->
+      <h2 class="text-center text-success mb-4"><strong>Skrining Gejala Risiko Diabetes</strong></h2>
+      <div class="frame-skrining">
         <div class="mb-3">
           <label for="riwayatKeluargaBelum" class="form-label">Riwayat diabetes keluarga inti (ayah/ibu/saudara kandung)?</label>
           <select class="form-select" id="riwayatKeluargaBelum" required>
@@ -371,7 +371,6 @@
         <div class="mb-3">
           <label for="beratBadanBelum" class="form-label">Berat Badan (kg)</label>
           <input type="number" class="form-control" id="beratBadanBelum" min="20" max="250" step="0.1" required>
-        </select>
         </div>
       </div>
       <div class="text-center mb-3">
@@ -620,34 +619,6 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   const tinggiBadan = document.getElementById("tinggiBadanBelum").value;
   const beratBadan = document.getElementById("beratBadanBelum").value;
 
-  // Skrining Gejala
-  const kelompok = {
-    'Neuropati (Saraf)': ['neuropati1Belum', 'neuropati2Belum', 'neuropati3Belum', 'neuropati4Belum'],
-    'Nefropati (Ginjal)': ['nefropati1Belum', 'nefropati2Belum', 'nefropati3Belum'],
-    'Retinopati (Mata)': ['retinopati1Belum', 'retinopati2Belum', 'retinopati3Belum'],
-    'Kardiovaskular (Jantung)': ['kardiovaskular1Belum', 'kardiovaskular2Belum', 'kardiovaskular3Belum']
-  };
-
-  let hasilRisiko = {
-    'Risiko Tinggi': [],
-    'Risiko Sedang': [],
-    'Risiko Rendah': [],
-    'Tidak Berisiko': []
-  };
-
-  for (let [namaKelompok, listId] of Object.entries(kelompok)) {
-    let jumlahYa = listId.filter(id => document.getElementById(id).value === 'ya').length;
-    if (jumlahYa >= 3) {
-      hasilRisiko['Risiko Tinggi'].push(namaKelompok);
-    } else if (jumlahYa === 2) {
-      hasilRisiko['Risiko Sedang'].push(namaKelompok);
-    } else if (jumlahYa === 1) {
-      hasilRisiko['Risiko Rendah'].push(namaKelompok);
-    } else {
-      hasilRisiko['Tidak Berisiko'].push(namaKelompok);
-    }
-  }
-
   // Penilaian faktor risiko tambahan
   let faktorRisiko = [];
   if (riwayatKeluarga === "ya") faktorRisiko.push("Riwayat diabetes keluarga inti");
@@ -666,7 +637,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
     }
   }
 
-  // Kirim ke Google Sheet (Skrining Belum Pernah)
+  // Kirim ke Google Sheet
   fetch("https://script.google.com/macros/s/AKfycbxsafoDAUkm86w-xR3UA9RT8EG-BcdhM-_2uXfDgeWA8J3BkufbDXmdgT-rbwffw_rP5Q/exec", {
     method: "POST",
     headers: {
@@ -686,7 +657,6 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
       tinggi_badan: tinggiBadan,
       berat_badan: beratBadan,
       bmi: bmi,
-      hasil_risiko: Object.keys(hasilRisiko).filter(k => hasilRisiko[k].length > 0).map(k => k + ": " + hasilRisiko[k].join(', ')).join(" | "),
       faktor_risiko_tambahan: faktorRisiko.join(", ")
     })
   })
@@ -708,13 +678,10 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   const wa = document.getElementById('hubungiWA');
 
   let ringkasan = [];
-  for (let kategori in hasilRisiko) {
-    if (hasilRisiko[kategori].length > 0) {
-      ringkasan.push(`${kategori} pada: ${hasilRisiko[kategori].join(', ')}`);
-    }
-  }
   if (faktorRisiko.length > 0) {
-    ringkasan.push("Faktor risiko tambahan: " + faktorRisiko.join(', '));
+    ringkasan.push("Faktor risiko: " + faktorRisiko.join(', '));
+  } else {
+    ringkasan.push("Tidak ditemukan faktor risiko utama.");
   }
   if (bmi) {
     ringkasan.push("BMI: " + bmi);
@@ -722,11 +689,11 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   output.textContent = ringkasan.join(". ") + ".";
 
   // Solusi
-  if (hasilRisiko["Risiko Tinggi"].length > 0 || faktorRisiko.length > 0) {
-    solusi.textContent = "Risiko komplikasi ditemukan atau terdapat faktor risiko diabetes. Segera konsultasi ke fasilitas kesehatan untuk pemeriksaan lebih lanjut.";
+  if (faktorRisiko.length > 0) {
+    solusi.textContent = "Risiko diabetes ditemukan. Sebaiknya konsultasi ke fasilitas kesehatan untuk pemeriksaan lebih lanjut.";
     wa.classList.remove('d-none');
   } else {
-    solusi.textContent = "Tidak ditemukan risiko komplikasi. Tetap jaga pola hidup sehat dan lakukan kontrol rutin.";
+    solusi.textContent = "Tidak ditemukan faktor risiko utama. Tetap jaga pola hidup sehat.";
     wa.classList.add('d-none');
   }
 
@@ -738,11 +705,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   Kabupaten : ${kabupaten},
   Provinsi : ${provinsi}.
   Hasil skrining menunjukkan :\n`;
-  for (let kategori in hasilRisiko) {
-    if (hasilRisiko[kategori].length > 0)
-      pesanWA += `${kategori}: ${hasilRisiko[kategori].join(', ')}.\n`;
-  }
-  if (faktorRisiko.length > 0) pesanWA += `Faktor risiko tambahan: ${faktorRisiko.join(', ')}.\n`;
+  if (faktorRisiko.length > 0) pesanWA += `Faktor risiko: ${faktorRisiko.join(', ')}.\n`;
   if (bmi) pesanWA += `BMI: ${bmi}\n`;
   pesanWA += `Mohon informasi dan saran lebih lanjut. Terima kasih.`;
 
