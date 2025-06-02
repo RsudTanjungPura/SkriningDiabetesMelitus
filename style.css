@@ -214,11 +214,11 @@ hr {
   h2, .h2 {
     font-size: 18px !important;
   }
- .frame-informasi {
-  border: 2px solid #00923F;     
-  background-color: #00923F;     
-  padding: 20px;
-  border-radius: 8px;
+ .frame-informasi, .frame-skrining {
+  border: 2.5px solid #21a038;    /* hijau tegas, sedikit lebih tebal */
+  background: #fff;               /* putih polos di dalam, bukan hijau muda */
+  border-radius: 12px;            /* sedikit lebih bulat di pojok */
+  padding: 28px 18px;
   margin-bottom: 30px;
 }
   label.form-label {
