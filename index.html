@@ -187,14 +187,6 @@
           </select>
         </div>
         <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa bengkak di kaki atau wajah?</label>
-          <select class="form-select" id="nefropati1" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
           <label class="form-label">Apakah Anda merasa cepat lelah atau lemah tanpa sebab jelas?</label>
           <select class="form-select" id="nefropati2" required>
             <option value="">Pilih Jawaban</option>
@@ -213,14 +205,6 @@
 
         <!-- Retinopati -->
         <h2 class="text-start text-success mb-4">RETINOPATI (Masalah Penglihatan)</h2>
-        <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa penglihatan kabur, terutama saat malam atau membaca?</label>
-          <select class="form-select" id="retinopati1" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
         <div class="mb-3">
           <label class="form-label">Apakah Anda sering merasa penglihatan kabur, terutama saat malam atau membaca?</label>
           <select class="form-select" id="retinopati1" required>
@@ -257,14 +241,6 @@
           </select>
         </div>
         <div class="mb-3">
-          <label class="form-label">Apakah Anda sering merasa nyeri dada saat berjalan atau aktivitas ringan?</label>
-          <select class="form-select" id="kardiovaskular1" required>
-            <option value="">Pilih Jawaban</option>
-            <option value="ya">Ya</option>
-            <option value="tidak">Tidak</option>
-          </select>
-        </div>
-        <div class="mb-3">
           <label class="form-label">Apakah Anda pernah mengalami sesak napas tanpa sebab jelas?</label>
           <select class="form-select" id="kardiovaskular2" required>
             <option value="">Pilih Jawaban</option>
@@ -281,7 +257,7 @@
           </select>
         </div>
       </div>
-       <div class="text-center mb-3">
+      <div class="text-center mb-3">
         <button type="submit" class="btn btn-success w-50">Kirim Jawaban</button>
       </div>
       <div class="text-center mb-3">
@@ -399,8 +375,6 @@
           <input type="number" class="form-control" id="beratBadanBelum" min="20" max="250" step="0.1" required>
         </div>
       </div>
-      <div id="formBelumDiabetes" style="display: none;">
-    <form id="belumDiabetesForm" autocomplete="off">
       <div class="text-center mb-3">
         <button type="submit" class="btn btn-success w-50">Kirim Jawaban</button>
       </div>
@@ -495,10 +469,6 @@ function kembaliStepAwal() {
 }
 
 // === FORM SKRINING DIABETES (SUDAH PERNAH) ===
-document.getElementById('diabetesForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  // === FORM SKRINING DIABETES (SUDAH PERNAH) ===
 document.getElementById('diabetesForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
