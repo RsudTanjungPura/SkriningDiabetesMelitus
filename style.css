@@ -203,3 +203,37 @@ hr {
     font-size: 1rem;
   }
 }
+
+@media (max-width: 576px) {
+  .container {
+    padding: 10px;
+  }
+  .logo-rsud {
+    width: 70px;
+  }
+  h2, .h2 {
+    font-size: 18px !important;
+  }
+  .frame-informasi, .frame-skrining {
+    padding: 10px;
+    font-size: 14px;
+  }
+  label.form-label {
+    font-size: 13px;
+  }
+  .btn, button {
+    font-size: 16px !important;
+    padding: 10px 0 !important;
+  }
+  .modal-content {
+    font-size: 15px;
+  }
+  .modal-dialog {
+    margin: 1rem;
+    max-width: 98vw;
+  }
+  .modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
