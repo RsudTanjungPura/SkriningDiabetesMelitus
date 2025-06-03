@@ -386,6 +386,7 @@ document.getElementById('diabetesForm').addEventListener('submit', function (eve
       kabupaten: kabupaten,
       provinsi: provinsi,
       total_poin_ya: poinYa
+      hasil_risiko: hasilRisiko 
     })
   })
   .then(res => res.text())
@@ -497,6 +498,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
       bmi: bmi,
       dapat_poin_tinggi_berat: dapatPoinTinggiBerat,
       poin_umur: poinUmur
+      hasil_risiko: hasilRisiko
     })
   })
   .then(res => res.text())
