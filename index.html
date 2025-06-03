@@ -501,7 +501,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
   const solusi = document.getElementById('solusi');
   const wa = document.getElementById('hubungiWA');
   output.textContent = ""; // Sembunyikan detail skor
-  if (totalPoin <= 5) {
+  if (totalPoin < 5) {
     solusi.textContent = "Risiko Rendah. Lanjutkan gaya hidup sehat, periksa secara berkala sebulan sekali.";
     wa.classList.add('d-none');
   } else {
