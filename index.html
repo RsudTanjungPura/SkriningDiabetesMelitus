@@ -462,7 +462,7 @@ document.getElementById('belumDiabetesForm').addEventListener('submit', function
 
   // Tentukan hasil risiko:
   let hasilRisiko = "";
-  if (totalPoin <= 5) {
+  if (totalPoin < 5) {
     hasilRisiko = "Risiko Rendah";
   } else {
     hasilRisiko = "Risiko Tinggi";
